@@ -1,4 +1,11 @@
 body {
-    background: silver;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h1 {
+    font-weight: 200
+}
+
+div {
     color: gray;
 }
