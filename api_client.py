@@ -2,21 +2,21 @@ import http.client
 import json
 
 class weather_api_client:
-    def __init__(self, api_url_base, api_key):
-        self.api_url_base = api_url_base
-        self.api_key = api_key
+    def __init__(self):
+        self.api_url = 'api.openweathermap.org/data/2.5/'
+        self.api_key = '623af9cc19f6aab782588ed432ed3434'
     
     def get_weather(self, city_name):
         
-        #api_url = '{0}weather?q={1}'.format(self.api_url_base, city_name)
-        #connection = http.client.HTTPConnection(self.api_url_base, 80, timeout=10)
-        
-        connection = http.client.HTTPConnection('api.openweathermap.org/data/2.5/weather?q=Boston', 80, timeout=10)
+        # https://api.openweathermap.org/data/2.5/weather?q=Boston,US&appid=623af9cc19f6aab782588ed432ed3434
 
-        headers = {'Content-Type': 'application/json',
-           'Authorization': 'appid {0}'.format(self.api_key)}
+        api_url = '{0}weather?q={1}&appId={2}'.format(self.api_url_base, city_name, self.api_key)
                 
-        connection.request("GET", '/', json.dumps(headers))
+        connection = http.client.HTTPSConnection(self.api_url_base, 80, timeout=10)
+              
+        headers = {'Content-Type': 'application/json'}
+                
+        connection.request("GET", api_url, json.dumps(headers))
 
         response = connection.getresponse()
 
