@@ -1,9 +1,15 @@
 from flask import Flask, render_template
 from api_client import weather_api_client
+from datetime import datetime
 import json
 
 app = Flask(__name__)
 
+
+def format_datetime(value):
+    return datetime.fromtimestamp(value)
+
+app.jinja_env.filters['format_dt'] = format_datetime
 
 @app.route('/')
 def index():
@@ -37,6 +43,8 @@ def forecast(city):
             data = myfile.read()
         return render_template('forecast.html', city_name=city, forecast_data=json.loads(data))
 
+def get_datetime_from_timestamp(timestamp):
+    return datetime.fromtimestamp(timestamp)
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1')
