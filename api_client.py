@@ -3,7 +3,7 @@ import json
 
 class weather_api_client:
     def __init__(self):
-        self.api_url = 'api.openweathermap.org/data/2.5/'
+        self.api_url_base = 'api.openweathermap.org/data/2.5/'
         self.api_key = '623af9cc19f6aab782588ed432ed3434'
     
     def get_weather(self, city_name):
