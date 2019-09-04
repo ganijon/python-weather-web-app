@@ -4,6 +4,10 @@
 </head>
 <body>
 <h1>Forecast for {{ city_name }}</h1>
+
+<a href="/"> < Back  </a>
+</br>
+
 {% if forecast_data %}
     {% for fc in forecast_data.list %}
         <div> 

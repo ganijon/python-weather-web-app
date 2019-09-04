@@ -4,6 +4,11 @@
 </head>
 <body>
 <h1>Weather for {{ city_name }}</h1>
+
+<a href="/"> < Back  </a>
+
+</br>
+
 {% if weather_data %}
     <div> 
         <div> Date-time: {{ weather_data.dt | format_dt }} </div>
@@ -11,5 +16,7 @@
         <div> Description: {{ weather_data.weather[0].description }} </div>
     </div>
 {% endif %}
+
+
 </body>
 </html>
