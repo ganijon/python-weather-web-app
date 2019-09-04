@@ -8,15 +8,14 @@
 <a href="/"> < Back  </a>
 </br>
 
-{% if forecast_data %}
     {% for fc in forecast_data.list %}
         <div> 
-            <div> Date: <span>{{ fc.dt | format_dt }}</span> </div>
+            <div> Date: <span>{{ fc.dt | format_datetime }}</span> </div>
             <div> Forecast: {{ fc.weather[0].main}} </div>
             <div> Description: {{ fc.weather[0].description }} </div>
         </div>
         <hr/>
     {% endfor %}
-{% endif %}
+
 </body>
 </html>

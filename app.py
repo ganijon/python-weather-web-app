@@ -4,10 +4,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-def format_datetime(value):
-    return datetime.fromtimestamp(value)
-
-app.jinja_env.filters['format_dt'] = format_datetime
 
 @app.route('/')
 def index():
@@ -27,10 +23,10 @@ def forecast(city):
     data = wapi.get_forecast(city)
     return render_template('forecast.html', city_name=city, forecast_data=data)
 
+def format_datetime(value):
+    return datetime.fromtimestamp(value)
 
-def get_datetime_from_timestamp(timestamp):
-    return datetime.fromtimestamp(timestamp)
-
+app.jinja_env.filters['format_datetime'] = format_datetime
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1')

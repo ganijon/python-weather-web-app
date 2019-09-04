@@ -9,14 +9,11 @@
 
 </br>
 
-{% if weather_data %}
     <div> 
-        <div> Date-time: {{ weather_data.dt | format_dt }} </div>
-        <div> Forecast: {{ weather_data.weather[0].main}} </div>
+        <div> Date-time: {{ weather_data.dt | format_datetime }} </div>
+        <div> Weather: {{ weather_data.weather[0].main}} </div>
         <div> Description: {{ weather_data.weather[0].description }} </div>
     </div>
-{% endif %}
-
 
 </body>
 </html>
