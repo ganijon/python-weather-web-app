@@ -3,16 +3,16 @@
 <link rel="stylesheet" href='/static/style.css' />
 </head>
 <body>
-<h1>Weather for {{ city_name }}</h1>
+<h1>Weather for {{ ct }}</h1>
 
 <a href="/"> < Back  </a>
 
 </br>
 
     <div> 
-        <div> Date-time: {{ weather_data.dt | format_datetime }} </div>
-        <div> Weather: {{ weather_data.weather[0].main}} </div>
-        <div> Description: {{ weather_data.weather[0].description }} </div>
+        <div> Date-time: {{ dt }} </div>
+        <div> Weather: {{ wt }} </div>
+        <div> Description: {{ ds }} </div>
     </div>
 
 </body>

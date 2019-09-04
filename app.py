@@ -14,17 +14,25 @@ def index():
 def weather(city):
     wapi = weather_api_client()
     data = wapi.get_weather(city)
-    return render_template('weather.html', city_name=city, weather_data=data)
+
+    datetime = format_datetime(data["dt"])
+    weather = data["weather"][0]["main"]
+    description = data["weather"][0]["description"]
+
+    return render_template('weather.html', ct=city, dt=datetime, wt=weather, ds=description)
 
 
 @app.route('/forecast/<city>')
 def forecast(city):
     wapi = weather_api_client()
     data = wapi.get_forecast(city)
+
     return render_template('forecast.html', city_name=city, forecast_data=data)
+
 
 def format_datetime(value):
     return datetime.fromtimestamp(value)
+
 
 app.jinja_env.filters['format_datetime'] = format_datetime
 
